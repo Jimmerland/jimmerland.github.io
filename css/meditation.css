@@ -1,0 +1,197 @@
+/* 라임칵테일 */
+html,body {
+  /* background: linear-gradient(90deg, #56C19F, #EBF6C9); */
+  background: linear-gradient(180deg, #EBF6C9 2%,#CCE7BA 14%,#85CDA7 30%,#78CDB2 40%,#7ABEA8 50%,#56C19F 70%,#40A68C 100%); 
+  /* background: linear-gradient(180deg,#F5EFC8,#FFD0BF,#F7B8B4,#E89AAD,#4D5075); */
+  overflow-y: auto;
+  height: 1500px;
+  width: auto;
+  margin: 0px;
+}
+/* 스크롤바도 색 변경, hover 표현 가능. */
+
+::-webkit-scrollbar {
+  width:12px;
+  background-color: #CCE7BA;
+}
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(180deg, #EBF6C9 10%,#CCE7BA 40%, );
+}
+::-webkit-scrollbar-button:start:decrement{
+  background: linear-gradient(180deg, #EBF6C9 10%);
+}
+::-webkit-scrollbar-button:end:increment{
+  background: linear-gradient(180deg,#CCE7BA 50%,#85CDA7 80%);
+}
+::-webkit-scrollbar-track-piece{
+  background: linear-gradient(180deg, #EBF6C9 20%,#CCE7BA 60%,#85CDA7 95%,#56C19F 100%,);
+}
+::-webkit-scrollbar-thumb:hover{
+  width: 14px;
+  background:#30B08F;
+}
+
+/* flex box menu*/
+div.tutorial {
+  margin-top: 0px ;
+  margin-bottom: 40px;
+  height: 60px ;
+  width: 100% ;
+  opacity: 1;
+  background-color: #E2F1C4;
+}
+
+.title{
+  text-align: center;
+  margin:0px;
+  font-size: 80px;
+  width: 100%;
+}
+
+.dropArea {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  height: 500px;
+}
+
+.floating {
+  font-weight: 900;
+  font-size: 2.5em;
+  color: #FFF;
+  opacity: 0.5;
+  height: 200px;
+  margin-top: 0px;
+  text-shadow: 10px 4px 9px darkcyan ;
+  /* text-shadow: 10px 4px 9px #4cad8e; */
+}
+
+div {
+  margin: 175px auto;
+  width: 800px;
+  height: 400px;
+}
+
+/* drawing with snippet */
+.drop {
+  position: relative;
+	width: 24px;
+	height: 24px;
+  top: -30px;
+  margin: 0 auto;
+	background: #ebfff1;
+  opacity: 0;
+	border-radius: 24px;
+  animation-name: drip;
+  /* 자연현상쓸때는 exponential 함수를쓰면 자연스럽게 나옵니다. */
+  /* easeInExpo from https://matthewlein.com/tools/ceaser*/
+  animation-timing-function: cubic-bezier(0.950, 0.050, 0.795, 0.035);
+  animation-duration: 2.12s;
+  animation-iteration-count: 100;
+}
+
+/* psuedo selector */
+.drop::before {
+  content: "";
+  position: absolute;
+  width: 0;
+	height: 0;
+	border-left: 12px solid transparent;
+	border-right: 12px solid transparent;
+	border-bottom: 32px solid #ebfff1;
+  top: -22px;
+}
+
+.wave {
+  position: relative;
+  opacity: 0;
+  top: 0;
+	width: 2px;
+	height: 1px;
+  border: #FFF 7px solid;
+	border-radius: 500px / 250px; 
+  animation-name: wavePropagation;
+  animation-delay: 2.12s;
+  animation-duration: 2.12s;
+  animation-iteration-count: 100;
+}
+
+.wave:after {
+  content: "";
+  position: absolute;
+  opacity: 0;
+  top: -2px;
+  left: -2px;
+	width: 0px;
+	height: 0px;
+  border: #FFF 5px solid;
+	border-radius: 120px / 60px;
+  animation-name: wavePropagation2;
+  animation-delay: 2.12s;
+  animation-duration: 2.12s;
+  animation-iteration-count: 100;
+}
+
+@keyframes wavePropagation {
+
+    from {
+      opacity: 0.4;
+    }
+    60%{
+      opacity: 0.5;
+    }
+    80%{
+      opacity: 0.1;
+    }
+    to {
+      width: 500px;
+      height: 250px;
+      border-width: 2px;
+      top: -50px;
+      opacity: 0;
+    }
+}
+
+@keyframes wavePropagation2 {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    width: 200px;
+    height: 100px;
+    border-width: 1px;
+    left:150px;
+    top:60px;
+    bottom:0px;
+  }
+}
+
+/* keyframe change on opacity and color*/
+@keyframes drip {
+     0% {
+      opacity: 0.1;
+      color:#E0F0C3;
+    }
+    80%{
+      opacity: 0.6;
+      color: #ebfff1;
+    }
+    90%{
+      opacity: 0.3;
+      color: #ebfff1;
+    }
+    95%{
+      opactiy: 0.08;
+      color: #ebfff1;
+    }
+    to {
+      top: 270px;
+      opacity: 0;
+    }
+}
+/* 참고: https://codepen.io/abehjat/pen/oXMENv */

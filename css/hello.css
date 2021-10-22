@@ -1,0 +1,221 @@
+  .nav {
+    /* background: #56C19F; */
+    display: inline-flexbox;
+    margin: 0px;
+  }
+  nav ul {
+    display: flex;
+    list-style: none;
+    position: relative;
+    justify-content: flex-end;
+    background-color: #83D0BC;
+    border-color: #30B08F;
+    height: 60px;
+    margin:0px;
+    border: 1px solid transparent;
+  }
+  nav ul li{
+    margin-left: 20px;
+    margin-top: 17px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-weight: 800;
+  }
+  nav ul li a{
+    display:block;
+    color:darkcyan;
+    letter-spacing: 0px;
+    text-decoration: none;
+    font-weight: 800;
+  }
+
+ 
+  /************
+   태그 스타일
+  *************/
+  body {
+    margin: 0px;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif,"Nanum Barun Gothic", "Nanum Gothic";
+    /* font-family: "Apple SD Gothic Neo", "Nanum Barun Gothic", "Nanum Gothic", Verdana, Arial, "Malgun Gothic", Dotum, sans-serif; */
+    overflow-y: scroll;
+    word-break: keep-all;
+    color: #1b1b1b;
+    /* 텍스트위주 문단은 scroll-behavior는 잔상이 남아 추천하지 않음. */
+    /* scroll-behavior: smooth; */
+  }
+  hr {
+    color:#48A28B;
+  }
+  hr.small{
+    max-width: 340px;
+    margin-top: 20px;
+    margin-left: auto;
+    border-width: 4px;
+    border: 2px solid #48A28B;
+    background-color: #48A28B;
+    border-color: #48A28B;
+    opacity: 1;
+    border-radius: 4px;
+    text-align: center;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    text-align: left;
+  }
+  span.answer {
+      font-size: 25px;
+  }
+  h3.answer {
+      text-align: right;
+      font-size: 20px;
+      font-weight: 600;
+  }
+  h1.main-name {
+    font-size:80px;
+    margin-top: 10px;
+    margin-bottom:10px;
+    text-align: center;
+  }
+  .keyword {
+    font-size:40px;
+    font-weight: 700;
+  }
+  .keyword2 {
+    font-size: 24px;
+    font-weight: 900;
+  }
+  .list {
+    font-size: 17px;
+    font-weight: 500;
+  }
+  a {
+    color:#48A28B;
+    letter-spacing: 0px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .intro-header  {
+    text-align: center;
+  }
+  p + p {
+   margin: 20px 0 6px 0;
+  }
+  .paragraph div h1 {
+    border-bottom: 1px solid #eaecef;
+    border-top-width: 200px;
+  }
+  .paragraph div .answer {
+    border-bottom: 1px solid #eaecef;
+    border-top-width: 200px;
+    
+  }
+  footer ul{
+    font-family: Arial;
+    display: flex;
+    list-style: none;
+    text-align: center;
+  }
+  img.bye {
+    display: block;
+    margin: 0px auto;
+    text-align: center;
+  }
+  /*============컨테이너 제어=============*/
+  .namebox {
+      position: relative;
+      height:150px;
+      margin-top: 20px;
+      color: #48A28B;
+    }
+  .intro_container {
+    width: 600px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    }
+  div.introduction {
+    min-height: 20px;
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    padding: 19px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    box-shadow:  0 1px 1px rgb(0, 0, 0 , 0.1);
+    font-weight: 500;
+    /* color: #48A28B; */
+  }
+  .main_container {
+    width: 550px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10px;
+  }
+  div.qna {
+      min-height: 350px;
+      margin-bottom: 40px;
+  }
+  div.main {
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    box-shadow:  0 1px 1px rgb(0, 0, 0 , 0.1);
+  }
+  div.contents-keyword {
+    font-size:20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-stretch: normal;
+    text-align: center;
+    width: 400px;
+    min-height: 20px;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    box-shadow:  0 1px 1px rgb(0, 0, 0 , 0.1);
+  }
+  .paragraph li {
+    margin: 10px 0px 6px 0;
+  }
+  footer.subfoot {
+   background: linear-gradient(90deg, rgba(238, 232, 213, 0.5), rgba(147, 161, 161, 0.5));
+   padding-top: 0px;
+   padding-bottom: 50px;
+   position:relative;
+   bottom:0;
+   background: #F5F5F5;
+   border-top: 1px #EAEAEA solid;
+   margin-top: 0px;
+   height: 40px;
+   font-size: 14px;
+   display: block;
+   width: 100%; 
+   list-style: none;
+   text-align: center;
+   font-family: inherit;
+  }
+  footer div {
+    width: 100%;
+    margin-top: 0px;
+  }
+  .copyright, .reference{
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    margin-bottom: 7px;
+  }   

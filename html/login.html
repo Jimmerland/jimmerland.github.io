@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Login</title>
+  <meta name="author" content="jimmer"/>
+  <link rel="stylesheet" type="text/css" href="../css/login.css"
+  media="only screen and (min-width : 400px)">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+<style>
+</style>
+</head>
+  <body>
+    <nav class="nav">
+      <ul class="event">
+            <li><a href="../index.html">main</a></li> 
+            <li><a href="./blackboard.html">blackboard</a></li>        
+      </ul>
+    </nav>
+    <div class="namebox">
+      <h1 class="main-name">Sign Up</h1>
+    </div>
+  <div class="intro_container">
+    <div class="row">
+      <div class="signUpform" onselectstart="return false">
+          <form action="javascript:alert('제출성공');" name="signUpform"></form>    
+           <fieldset id="signUpform">
+            <p class="form-detail"><label for="userId">아이디</label><span class="req">*</span></p>
+              <input type="text" name="userId" id="userId" class="inputType1" required placeholder="영문,숫자 4~12">
+              <p class="confirm" id="idConfirm"></p>
+            <p class="form-detail"><label for="pwd">비밀번호</label><span class="req">*</span></p>
+              <input type="password" name="pwd" id="pwd" class="inputType1" required placeholder="숫자,문자,특수문자 포함 8~15">
+              <p class="confirm" id="pwdConfirm1"></p>
+            <p class="form-detail"><label for="pwdChk">비밀번호 확인</label><span class="req">*</span></p>
+              <input type="password" name="pwdChk" id="pwdChk" class="inputType1" required placeholder="숫자,문자,특수문자 포함 8~15">
+              <p class="confirm" id="pwdConfirm2"></p>
+            <p class="form-detail"><label for="userName">이름</label><span class="req">*</span></p>
+              <input type="text" name="userName" id="userName" class="inputType1" required  placeholder="한글 2글자 이상">
+              <p class="confirm" id="userNameConfirm"></p>
+            <p class="form-detail"><label for="gender">성별</label><span class="req"></span></p>
+              <input type="radio" name="gender" id="genderMale" value="male" checked>
+              <label for="male">남</label>
+              <input type="radio" name="gender" id="genderFemale" value="female">
+              <label for="female">여</label>
+              <input type="radio" name="gender" id="nonGender" value="nonGender" checked>
+              <label for="nonGender">선택안함</label>
+            <p class="form-detail"><label for="email">이메일</label><span class="req">*</span></p>
+              <input type="text" name="email" id="email" class="inputType1" required>
+              <p class="confirm" id="emailConfirm"></p>
+              <br>
+              <p class="form-detail"><button type="button" id="signUpButton" onclick="signUpCheck();">가입하기</button></p>
+           </fieldset>
+          </form>  
+        
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+  <div class="container">
+    <div class="link-icon">
+      <ul class="">
+        <li><a href="" ></a></li>
+        <li><a href=""> </a></li>
+        <li></li>
+        <li><a href="" ><span class=""></span></a></li>
+        <li></li>
+      </ul>
+    <p class="copyright">
+        <span>Jimmerland</span>&nbsp;&nbsp;&bull;&nbsp; iloveinca2@gmail.com &nbsp;&bull;&nbsp;&nbsp;
+        <span>Republic of South Korea</span>     
+    </p>  
+    <p class="reference">
+        <span>Copyright by <a>Jimmerland</a> 2021. All rights reserved</a>
+    </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../js/jquery-3.6.0.js"></script>
+<script src="../js/signUp.js"></script>
+  </body>
+</html>
