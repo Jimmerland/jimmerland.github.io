@@ -4,39 +4,46 @@ $("#userId").focusout(function () {
     var text = $("#idConfirm");
     
     const regExp1 = /^[a-z][a-z\d]{3,11}$/;
-    const regExp1sub =/^[a-z]+[a-zA-Z\d]{3,11}$/;
-    const regExp1sub2 = /[0-9]$/;
+    const regExp1sub =/^[a-z]/;
+    const regExp1sub2 = /[0-9]/;
 
     if(userId=="") {
       idConfirm.innerText = "필수 입력사항입니다";
       text.css("color", "red");
+      return false;
     }
     else if(!regExp1sub.test(userId)) {
         idConfirm.innerText = "아이디 시작은 소문자로 해주세요.";
         text.css({"color": "red",
-                "font-size":"14px"});         
+                "font-size":"14px"}); 
+        return false;        
     }
     else if(!regExp1sub2.test(userId)){
         idConfirm.innerText = "아이디에는 숫자가 포함되야합니다.";
         text.css({"color": "red",
-              "font-size":"14px"});  
+              "font-size":"14px"}); 
+        return false; 
     }
     else if(!regExp1.test(userId)) {
-      idConfirm.innerText = "아이디는 영문,숫자포함 4~12자리";
+      idConfirm.innerText = "아이디는 영문,숫자포함 4~12자리(소문자시작)";
       text.css({"color": "red",
-                "font-size":"14px"});         
+                "font-size":"14px"});
+      return false;         
     }
     else if(regExp1.test(userId)) {
       idConfirm.innerText = "사용가능한 아이디입니다.";
       text.css({"color": "blue",
                 "font-size":"14px"});
+      return true;
     }
+
 });
 
 //https://beagle-dev.tistory.com/114
 
 const $pwd1Valid = $("#pwd");
 $pwd1Valid.focusout(function() {
+  
   var pwd1 = $("#pwd").val();
   var text = $("#pwdConfirm1");
   const regExp2= /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,15}$/;
@@ -110,28 +117,53 @@ $("#email").focusout(function () {
     }
 });
 
-$(document.logInform).submit(e => {
+$(document.signUpform).submit( (e) => {
     //가입완료
     alert("가입완료");
     saveMember();
-  });
-
-function MemberMap(userId,pwd,userName,gender,email){
-    this.userId = userId; //아이디
-    this.pwd = pwd; //비밀번호 
-    this.userName = userName; //이름 
-    this.gender = gender; //성별
-    this.email = email; //이메일 
-    this.signUpDate = Date.now();
-}
+});
 
 const saveMember = () => {
-  var gender = $("input[name='gender']:checked").val();
+  const $userId = $(userId);
+  const $pwd = $(pwd);
+  const $userName = $(userName);
+  const $gender = $(gender);
+  const $email = $(email);
 
-  const member = new MemberMap(userId.value, pwd.value, userName.value, gender, email.value);
-  const members = JSON.parse(localStorage.getItem('members')) || [];
-  members.push(member);
-  localStorage.setItem('members', JSON.stringify(members));
+  if($userId.val() == ""  || $pwd.val() == "" || 
+    $userName.val() =="" || $gender.val() ==""||
+    $email.val() =="")
+    return;
+
+  // 1. 사용자입력값을 MemberMap객체생성
+  const mb = new MemberMap($userId.val(), $pwd.val(),
+          $userName.val(),$gender.val(),$email.val());
+  // 2. localStorage에 추가 : 배열로 관리
+  const members = JSON.parse(localStorage.getItem("members")) || [];
+  members.push(mb);
+  console.log(members);
+
+  localStorage.setItem("members", JSON.stringify(members));
+  // 3.초기화
+  $userId.val('');
+  $pwd.val('');
+  $userName('');
+  $gender('');
+  $email('');
+
+  // 방명록 목록보기
+  // displayGuestbook();
+};
+
+class MemberMap {
+  constructor(userId, pwd, userName,gender,email){
+    this.userId = userId;
+    this.pwd = pwd;
+    this.userName = userName;
+    this.gender = gender;
+    this.email = email;
+    this.datetime = Date.now(); // unix time 밀리초
+  }
 }
 
 function regExp(regExp, el){
@@ -167,7 +199,6 @@ function regExp(regExp, el){
                   ,"아이디는 숫자를 하나이상 포함하세요."))
         return false;
 
-
     //2.비밀번호 확인 검사
     //숫자/문자/특수문자/ 포함 형태의 8~15자리 이내의 암호 정규식 
     //전체길이검사 /^.{8,15}$/
@@ -200,7 +231,7 @@ function regExp(regExp, el){
     if(!regExpTest(/^[\w]{4,}@[\w]+(\.[\w]+){1,3}$/, email, "이메일 형식에 어긋납니다."))
             return false;
 
-    document.signUpForm.submit();
+    document.signUpform.submit();
   }
 
 function isEqualPwd(){
