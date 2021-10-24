@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
 <style>
 </style>
+
 </head>
   <body onselectstart="return false">
     <nav class="nav" onselectstart="return false">
@@ -30,14 +31,24 @@
 
   <div class="intro_container">
     <div class="row">
-        <div class="intro" onselectstart="return false">
-            
-            <p><a href="#selfcheck" class="contets-links">1. &nbsp;해야할 것 vs 하지말아야 하는 것 &nbsp;&nbsp;</p>
-            <p><a href="#attitude" class="contets-links">2. &nbsp;좋은 습관 들이기 &nbsp;</a></p>
-            <p><a href="#nextstep" class="contets-links">3. &nbsp;공통주제 &nbsp;</a></p>
+      <!-- contents는 목차 content내용물 https://confusingtimes.tistory.com/1821 -->
+        <div class="intro" onselectstart="return false" id="contents"> 
+            <p><a href="#selfcheck" class="content-links" >1. &nbsp;해야할 것 vs 하지말아야 하는 것 &nbsp;&nbsp;</p>
+            <p><a href="#attitude" class="content-links">2. &nbsp;좋은 습관 들이기 &nbsp;</a></p>
+            <p><a href="#nextstep" class="content-links">3. &nbsp;공통주제 &nbsp;</a></p>
         </div>
     </div>
   </div>
+  <!-- <div class="fixedIndex"></div> -->
+  <div class="fixedIndex" id="index">
+    <p class="index-title"><a href="#contents" class="list-links" >지속 가능한 개발자 되기</a></p>
+    <p class="index-content"><a href="#selfcheck" class="list-links" >└&nbsp;Do and Don'ts</a></p>
+    <!-- <hr class="index-line"> -->
+    <p class="index-content"><a href="#attitude" class="list-links">└&nbsp;좋은 습관 들이기</a></p>
+    <!-- <hr class="index-line"> -->
+    <p class="index-content"><a href="#nextstep" class="list-links">└&nbsp;공통주제</a></p>
+    <!-- <hr class="index-line"> -->
+ </div>
   <div class="main_container" onselectstart="return false">
     <div class="paragraph">
       <div>
@@ -72,7 +83,7 @@
         <h1 id="attitude">좋은 습관 들이기</h1>
         <p>기본적으로 프로그래머라면 꼭 들여할 습관으로 다음 세가지 요소가 가장 많이 언급된다<br><br>
         </p>
-        <div class="contents-keyword">
+        <div class="content-keyword">
            <span ><strong>Refactoring, Testing, Cooperation</strong></span>
         </div>
         <p class="keyword">Refactoring</p>
@@ -137,7 +148,7 @@
         </ul>
         <p>이 부분은 우아한 테크코스 백엔드 커리큘럼을 참고하여 요약하였다.
           자세한 내용은 아래 링크를 통해 참조하시기 바란다.</p>
-        <p><a href="https://github.com/woowacourse/back-end-roadmap" class="contets-links">우아한 테크코스 백엔드 로드맵 2020</a></p>
+        <p><a href="https://github.com/woowacourse/back-end-roadmap" class="content-links">우아한 테크코스 백엔드 로드맵 2020</a></p>
         <p></p>
         <p></p>
       </div>
@@ -165,5 +176,19 @@
     </div>
   </div>
 </footer>
+ <script>
+  // // 스크롤에 따라 목차 고정시키기
+  // $(function() {
+  //     $.fn.Scrolling = function(obj, tar) {
+  //         var _this = this;
+  //         $(window).scroll(function(e) {
+  //             var end = obj + tar;
+  //             $(window).scrollTop() >= obj ? _this.addClass("fixedList") : _this.removeClass("fixedList");
+  //             if($(window).scrollTop() >= end) _this.removeClass("fixedList");
+  //         });
+  //     };
+  //     $("#index").Scrolling($("#index").offset().top, ($(".main_container").height() - $("#index").height()));
+  // });
+  </script>
   </body>
 </html>
